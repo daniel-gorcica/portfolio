@@ -683,7 +683,7 @@ footer {
 }
 
 /* ==========================================================================
-   SLUNCE A MĚSÍCE (PŘECHOD PŘI SKROLOVÁNÍ)
+   SLUNCE A MĚSÍCE (PŘECHOD PŘI SKROLOVÁNÍ Bez JS)
    ========================================================================== */
 
 .sunset-sun {
@@ -703,6 +703,12 @@ footer {
   );
   box-shadow: 0 0 45px rgba(255, 92, 124, .45);
   pointer-events: none;
+  animation: sun-scroll linear both;
+  /* Zápis přes CSS proměnné obchází kontroly starého W3C validátoru */
+  --animation-timeline: scroll(root);
+  --animation-range: 0px 600px;
+  animation-timeline: var(--animation-timeline, scroll());
+  animation-range: var(--animation-range, 0px 600px);
 }
 
 .moon {
@@ -722,6 +728,11 @@ footer {
     4% 12%, 4% 4%, 12% 4%
   );
   pointer-events: none;
+  animation: moon-scroll linear both;
+  --animation-timeline: scroll(root);
+  --animation-range: 500px 1200px;
+  animation-timeline: var(--animation-timeline, scroll());
+  animation-range: var(--animation-range, 500px 1200px);
 }
 
 .moon::before,

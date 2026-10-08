@@ -703,9 +703,6 @@ footer {
   );
   box-shadow: 0 0 45px rgba(255, 92, 124, .45);
   pointer-events: none;
-  animation: sun-scroll linear both;
-  animation-timeline: scroll(root);
-  animation-range: 0px 800px;
 }
 
 .moon {
@@ -717,6 +714,7 @@ footer {
   height: 260px;
   border-radius: 50%;
   background: #d8d9e8;
+  opacity: 0;
   clip-path: polygon(
     12% 0, 88% 0, 88% 4%, 96% 4%, 96% 12%, 100% 12%,
     100% 88%, 96% 88%, 96% 96%, 88% 96%, 88% 100%,
@@ -724,9 +722,6 @@ footer {
     4% 12%, 4% 4%, 12% 4%
   );
   pointer-events: none;
-  animation: moon-scroll linear both;
-  animation-timeline: scroll(root);
-  animation-range: 0px 800px;
 }
 
 .moon::before,
@@ -755,6 +750,21 @@ footer {
   box-shadow:
     66px -50px 0 -4px #b8bad0,
     -25px -40px 0 -7px #b8bad0;
+}
+
+/* Obalení moderních CSS animací pro čistou validaci bez chyb */
+@supports (animation-timeline: scroll()) {
+  .sunset-sun {
+    animation: sun-scroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 600px;
+  }
+
+  .moon {
+    animation: moon-scroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 500px 1200px;
+  }
 }
 
 @keyframes sun-scroll {

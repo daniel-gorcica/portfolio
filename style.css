@@ -257,14 +257,16 @@ h1 {
   background: #251b42;
 }
 
-@keyframes bob {
-  50% { transform: translateY(2px); }
-}
-
 .pixel-avatar {
   width: min(80%, 270px);
   height: auto;
   image-rendering: pixelated;
+  animation: bob 4s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
 
 .corner {
@@ -478,22 +480,8 @@ h1 {
     linear-gradient(to bottom, rgba(255, 209, 102, 0.4) 50%, transparent 50%);
   background-size: 8px 8px;
   backdrop-filter: blur(3px) contrast(160%);
-  -webkit-mask-image: linear-gradient(
-    115deg,
-    #000 0%,
-    #000 var(--flash-pos, 0%),
-    transparent var(--flash-pos, 0%),
-    transparent 100%
-  );
-  mask-image: linear-gradient(
-    115deg,
-    #000 0%,
-    #000 var(--flash-pos, 0%),
-    transparent var(--flash-pos, 0%),
-    transparent 100%
-  );
-  --flash-pos: -20%;
-  transition: --flash-pos 0.4s steps(8);
+  opacity: 0;
+  transition: opacity 0.4s steps(8);
   pointer-events: none;
 }
 
@@ -504,25 +492,20 @@ h1 {
   content: '';
   background: linear-gradient(
     115deg,
-    transparent calc(var(--flash-pos, -20%) - 6%),
-    rgba(255, 209, 102, 0.9) calc(var(--flash-pos, -20%) - 2%),
-    var(--pink) var(--flash-pos, -20%),
-    rgba(255, 209, 102, 0.9) calc(var(--flash-pos, -20%) + 2%),
-    transparent calc(var(--flash-pos, -20%) + 6%)
+    transparent 20%,
+    rgba(255, 209, 102, 0.9) 40%,
+    var(--pink) 50%,
+    rgba(255, 209, 102, 0.9) 60%,
+    transparent 80%
   );
-  transition: --flash-pos 0.4s steps(8);
+  opacity: 0;
+  transition: opacity 0.4s steps(8);
   pointer-events: none;
-}
-
-@property --flash-pos {
-  syntax: '<percentage>';
-  inherits: false;
-  initial-value: -20%;
 }
 
 .project-card:hover .project-art::before,
 .project-card:hover .project-art::after {
-  --flash-pos: 120%;
+  opacity: 1;
 }
 
 .project-art span {
@@ -621,100 +604,87 @@ footer {
   inset: 0;
   pointer-events: none;
 }
+
 .moving-clouds {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    z-index: 0;
-    overflow: hidden;
-    pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .cloud {
-    position: absolute;
-    width: 150px;
-    height: 20px;
-    background: rgba(150, 160, 190, .12);
-    image-rendering: pixelated;
+  position: absolute;
+  width: 150px;
+  height: 20px;
+  background: rgba(150, 160, 190, .12);
+  image-rendering: pixelated;
 }
 
 .cloud::before,
 .cloud::after {
-    position: absolute;
-    background: rgba(150, 160, 190, .12);
-    content: '';
+  position: absolute;
+  background: rgba(150, 160, 190, .12);
+  content: '';
 }
 
 .cloud::before {
-    width: 50px;
-    height: 25px;
-    top: -12px;
-    left: 25px;
+  width: 50px;
+  height: 25px;
+  top: -12px;
+  left: 25px;
 }
 
 .cloud::after {
-    width: 45px;
-    height: 22px;
-    top: -8px;
-    left: 75px;
+  width: 45px;
+  height: 22px;
+  top: -8px;
+  left: 75px;
 }
 
 .cloud-1 {
-    top: 14%;
-    left: -180px;
-    transform: scale(1);
-    animation: cloud-move-1 55s linear infinite;
+  top: 14%;
+  left: -180px;
+  animation: cloud-move-1 55s linear infinite;
 }
 
 .cloud-2 {
-    top: 25%;
-    left: -250px;
-    transform: scale(.7);
-    opacity: .6;
-    animation: cloud-move-2 75s linear infinite;
-    animation-delay: -25s;
+  top: 25%;
+  left: -250px;
+  opacity: .6;
+  animation: cloud-move-2 75s linear infinite;
+  animation-delay: -25s;
 }
 
 .cloud-3 {
-    top: 9%;
-    left: -350px;
-    transform: scale(.5);
-    opacity: .45;
-    animation: cloud-move-3 90s linear infinite;
-    animation-delay: -45s;
+  top: 9%;
+  left: -350px;
+  opacity: .45;
+  animation: cloud-move-3 90s linear infinite;
+  animation-delay: -45s;
 }
 
 @keyframes cloud-move-1 {
-    from {
-        transform: translateX(0) scale(1);
-    }
-
-    to {
-        transform: translateX(calc(100vw + 400px)) scale(1);
-    }
+  from { transform: translateX(0) scale(1); }
+  to { transform: translateX(calc(100vw + 400px)) scale(1); }
 }
 
 @keyframes cloud-move-2 {
-    from {
-        transform: translateX(0) scale(.7);
-    }
-
-    to {
-        transform: translateX(calc(100vw + 500px)) scale(.7);
-    }
+  from { transform: translateX(0) scale(.7); }
+  to { transform: translateX(calc(100vw + 500px)) scale(.7); }
 }
 
 @keyframes cloud-move-3 {
-    from {
-        transform: translateX(0) scale(.5);
-    }
-
-    to {
-        transform: translateX(calc(100vw + 600px)) scale(.5);
-    }
+  from { transform: translateX(0) scale(.5); }
+  to { transform: translateX(calc(100vw + 600px)) scale(.5); }
 }
+
+/* ==========================================================================
+   SLUNCE A MĚSÍCE (PŘECHOD PŘI SKROLOVÁNÍ)
+   ========================================================================== */
 
 .sunset-sun {
   position: fixed;
@@ -731,20 +701,20 @@ footer {
     #ff7a45 34px 50px,
     #ff334f 50px 68px
   );
-  box-shadow: 0 0 35px rgba(255, 92, 124, .35);
-  opacity: calc(1 - var(--sun-progress, 0));
+  box-shadow: 0 0 45px rgba(255, 92, 124, .45);
   pointer-events: none;
-  transform: translate(-50%, var(--sun-y, 0vh));
-  transition: opacity .2s ease;
+  animation: sun-scroll linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 800px;
 }
 
 .moon {
   position: fixed;
-  top: calc(50vh - 280px);
+  top: calc(50vh - 200px);
   left: 50%;
   z-index: 0;
-  width: 300px;
-  height: 300px;
+  width: 260px;
+  height: 260px;
   border-radius: 50%;
   background: #d8d9e8;
   clip-path: polygon(
@@ -753,10 +723,10 @@ footer {
     12% 100%, 12% 96%, 4% 96%, 4% 88%, 0 88%, 0 12%,
     4% 12%, 4% 4%, 12% 4%
   );
-  opacity: var(--moon-progress, 0);
   pointer-events: none;
-  transform: translate(-50%, var(--moon-y, -12vh));
-  transition: opacity .2s ease;
+  animation: moon-scroll linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0px 800px;
 }
 
 .moon::before,
@@ -768,23 +738,47 @@ footer {
 }
 
 .moon::before {
-  top: 58px;
-  left: 72px;
-  width: 42px;
-  height: 30px;
+  top: 50px;
+  left: 60px;
+  width: 36px;
+  height: 26px;
   box-shadow:
-    88px 18px 0 -7px #b8bad0,
-    42px 102px 0 -4px #b8bad0;
+    75px 15px 0 -6px #b8bad0,
+    35px 88px 0 -3px #b8bad0;
 }
 
 .moon::after {
-  top: 178px;
-  left: 80px;
-  width: 26px;
-  height: 18px;
+  top: 150px;
+  left: 68px;
+  width: 22px;
+  height: 15px;
   box-shadow:
-    78px -58px 0 -5px #b8bad0,
-    -30px -48px 0 -8px #b8bad0;
+    66px -50px 0 -4px #b8bad0,
+    -25px -40px 0 -7px #b8bad0;
+}
+
+@keyframes sun-scroll {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 140px) scale(0.6);
+  }
+}
+
+@keyframes moon-scroll {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -140px) scale(0.6);
+    box-shadow: 0 0 0px rgba(216, 217, 232, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+    box-shadow: 0 0 12px rgba(216, 217, 232, 0.25);
+  }
 }
 
 .sunset-sea {
@@ -796,9 +790,9 @@ footer {
   z-index: 0;
   border-top: 1px solid rgba(255, 200, 87, .35);
   background: linear-gradient(to bottom, rgba(37, 41, 77, .45), rgba(13, 16, 32, .9));
-  opacity: calc(1 - var(--sun-progress, 0));
+  opacity: 1;
   pointer-events: none;
-  transition: opacity .2s ease;
+  transition: opacity .4s ease;
 }
 
 .sunset-sea::before {
@@ -815,6 +809,12 @@ footer {
     30px 60px 0 -1px rgba(255, 200, 87, .3);
   content: '';
   transform: translateX(-50%);
+  animation: sea-shimmer 3s ease-in-out infinite alternate;
+}
+
+@keyframes sea-shimmer {
+  0% { opacity: 0.6; transform: translateX(-52%); }
+  100% { opacity: 1; transform: translateX(-48%); }
 }
 
 main,
@@ -859,92 +859,227 @@ footer {
   50% { opacity: .9; transform: scale(1); }
 }
 
-@media (max-width: 700px) {
+/* ==========================================================================
+   OPTIMALIZACE PRO MOBILNÍ ZAŘÍZENÍ (MAX-WIDTH: 768PX)
+   ========================================================================== */
+@media (max-width: 768px) {
   .site-header,
   main,
   footer {
-    width: min(100% - 28px, 1100px);
+    width: min(100% - 24px, 1100px);
+  }
+
+  main {
+    padding-top: 110px;
+  }
+
+  .sunset-sun,
+  .moon {
+    width: 180px;
+    height: 180px;
+  }
+
+  .sunset-sun {
+    top: calc(50vh - 90px);
+  }
+
+  .moon {
+    top: calc(50vh - 140px);
   }
 
   .site-header {
-    align-items: flex-start;
     flex-direction: column;
-    gap: 14px;
-    padding: 20px 0;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    min-height: auto;
+    background: rgba(13, 16, 32, .95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(48, 57, 88, 0.5);
+  }
+
+  .logo {
+    font-size: 13px;
   }
 
   nav {
-    gap: 14px;
+    gap: 12px 18px;
+    justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .hero,
-  .about-grid {
-    grid-template-columns: 1fr;
+    font-size: 10px;
   }
 
   .hero {
-    gap: 42px;
-    padding: 55px 0;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px 0 35px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin-bottom: 12px;
+    font-size: 9px;
+  }
+
+  .hero .eyebrow {
+    font-size: 10px;
+  }
+
+  h1 {
+    font-size: 26px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .diacritic::before {
+    top: -6px;
+    width: 3px;
+    height: 3px;
+  }
+
+  .intro {
+    font-size: 15px;
+    padding-left: 0;
+    border-left: none;
+    border-top: 2px solid var(--yellow);
+    padding-top: 12px;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .button {
+    padding: 11px 15px;
+    font-size: 9px;
+    width: 100%;
+    max-width: 260px;
   }
 
   .avatar-box {
-    width: min(100%, 350px);
+    width: min(100%, 280px);
     margin: 0 auto;
+    padding: 8px;
+  }
+
+  .avatar-screen {
+    height: 200px;
+  }
+
+  .pixel-avatar {
+    width: min(85%, 200px);
+  }
+
+  .avatar-status {
+    font-size: 9px;
+    padding: 8px 0 0;
   }
 
   .stats {
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 12px;
   }
 
   .stats > div {
-    min-width: 26%;
+    padding-bottom: 8px;
+  }
+
+  .stats strong {
+    font-size: 20px;
+  }
+
+  .stats span {
+    font-size: 8px;
   }
 
   .content-section {
-    padding-top: 65px;
+    padding-top: 45px;
+  }
+
+  .section-heading {
+    margin-bottom: 20px;
+  }
+
+  .section-heading h2 {
+    font-size: 15px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .large-copy {
+    font-size: 18px;
+  }
+
+  .about-copy p {
+    font-size: 14px;
+  }
+
+  .skill-panel {
+    padding: 16px;
+  }
+
+  .skills li {
+    font-size: 12px;
   }
 
   .project-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .project-card {
-    max-width: 390px;
-    width: 100%;
-    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .project-art {
+    height: 140px;
+  }
+
+  .project-art span {
+    font-size: 42px;
+  }
+
+  .project-info {
+    padding: 14px;
+  }
+
+  .project-info h3 {
+    font-size: 12px;
+  }
+
+  .project-info p {
+    font-size: 13px;
   }
 
   .contact-section {
-    margin: 70px 0 50px;
+    margin: 45px 0 35px;
+    padding: 30px 16px;
+  }
+
+  .contact-section h2 {
+    font-size: 20px;
+    margin: 8px 0 20px;
   }
 
   footer {
-    align-items: flex-start;
     flex-direction: column;
-  }
-}
-
-@media (max-width: 420px) {
-  h1 {
-    font-size: 29px;
-  }
-
-  .hero-actions .button {
-    width: 100%;
+    align-items: center;
     text-align: center;
-  }
-
-  .stats {
-    flex-direction: column;
-  }
-
-  .stats > div {
-    min-width: 100%;
+    gap: 14px;
+    padding: 20px 0;
   }
 
   .footer-links {
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
   }
 }
 
@@ -957,52 +1092,7 @@ footer {
     transition: none !important;
   }
 }
-/* ===== Verze bez JavaScriptu: animace při posouvání řeší čisté CSS ===== */
-@keyframes sun-set-scroll {
-  to {
-    opacity: 0;
-    transform: translate(-50%, 65vh);
-  }
-}
 
-@keyframes moon-rise-scroll {
-  0%, 45% {
-    opacity: 0;
-    transform: translate(-50%, -12vh);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-}
-
-@keyframes header-scroll-bg {
-  to {
-    background: rgba(13, 16, 32, .94);
-  }
-}
-
-.sunset-sun {
-  opacity: 1;
-  transform: translate(-50%, 0);
-  animation: sun-set-scroll linear both;
-  animation-timeline: scroll(root);
-}
-
-.moon {
-  opacity: 0;
-  transform: translate(-50%, -12vh);
-  animation: moon-rise-scroll linear both;
-  animation-timeline: scroll(root);
-}
-
-.site-header {
-  animation: header-scroll-bg linear both;
-  animation-timeline: scroll(root);
-  animation-range: 0 60px;
-}
-
-/* ===== Čitelnost textu přes západ slunce ===== */
 .about-copy p,
 .intro,
 .section-heading h2,

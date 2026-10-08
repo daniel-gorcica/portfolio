@@ -646,7 +646,7 @@ footer {
 
 .moon {
   position: fixed;
-  top: calc(50vh - 150px);
+  top: calc(50vh - 280px);
   left: 50%;
   z-index: 0;
   width: 300px;
@@ -659,7 +659,6 @@ footer {
     12% 100%, 12% 96%, 4% 96%, 4% 88%, 0 88%, 0 12%,
     4% 12%, 4% 4%, 12% 4%
   );
-  box-shadow: 0 0 35px rgba(216, 217, 232, .25);
   opacity: var(--moon-progress, 0);
   pointer-events: none;
   transform: translate(-50%, var(--moon-y, -12vh));
@@ -863,4 +862,60 @@ footer {
     animation: none !important;
     transition: none !important;
   }
+}
+/* ===== Verze bez JavaScriptu: animace při posouvání řeší čisté CSS ===== */
+@keyframes sun-set-scroll {
+  to {
+    opacity: 0;
+    transform: translate(-50%, 65vh);
+  }
+}
+
+@keyframes moon-rise-scroll {
+  0%, 45% {
+    opacity: 0;
+    transform: translate(-50%, -12vh);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes header-scroll-bg {
+  to {
+    background: rgba(13, 16, 32, .94);
+  }
+}
+
+.sunset-sun {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  animation: sun-set-scroll linear both;
+  animation-timeline: scroll(root);
+}
+
+.moon {
+  opacity: 0;
+  transform: translate(-50%, -12vh);
+  animation: moon-rise-scroll linear both;
+  animation-timeline: scroll(root);
+}
+
+.site-header {
+  animation: header-scroll-bg linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 60px;
+}
+
+/* ===== Čitelnost textu přes západ slunce ===== */
+.about-copy p,
+.intro,
+.section-heading h2,
+.section-heading > span {
+  text-shadow:
+    0 2px 12px rgba(5, 2, 4, 1),
+    0 0 34px rgba(5, 2, 4, .95),
+    0 0 10px rgba(5, 2, 4, 1),
+    0 0 3px rgba(5, 2, 4, 1);
 }

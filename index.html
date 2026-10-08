@@ -257,20 +257,5 @@
       <a href="AI-CITACE.md">AI CITACE</a>
     </div>
   </footer>
-  <script>
-    const header = document.querySelector('.site-header');
-    const sunsetSun = document.querySelector('.sunset-sun');
-    const moon = document.querySelector('.moon');
-
-    window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 10);
-      const progress = Math.min(window.scrollY / window.innerHeight, 1);
-      sunsetSun.style.setProperty('--sun-progress', progress);
-      sunsetSun.style.setProperty('--sun-y', `${progress * 65}vh`);
-      const moonProgress = Math.max(0, (progress - .45) / .55);
-      moon.style.setProperty('--moon-progress', moonProgress);
-      moon.style.setProperty('--moon-y', `${(1 - progress) * -12}vh`);
-    });
-  </script>
 </body>
 </html>

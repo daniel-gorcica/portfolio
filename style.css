@@ -340,6 +340,11 @@ h1 {
   font-size: 22px;
 }
 
+.stats > div:nth-child(3) strong {
+  font-size: 44px;
+  line-height: 1;
+}
+
 .stats span {
   margin-top: 8px;
   color: var(--muted);
@@ -990,6 +995,10 @@ footer {
 
   .stats strong {
     font-size: 20px;
+  }
+
+  .stats > div:nth-child(3) strong {
+    font-size: 36px;
   }
 
   .stats span {

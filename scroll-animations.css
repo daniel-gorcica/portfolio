@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@supports (animation-timeline: scroll()) {
+  .sunset-sun {
+    animation: sun-scroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0px 600px;
+  }
+
+  .moon {
+    animation: moon-scroll linear both;
+    animation-timeline: scroll(root);
+    animation-range: 500px 1200px;
+  }
+}

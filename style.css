@@ -475,7 +475,7 @@ h1 {
   inset: 0;
   z-index: 1;
   content: '';
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 92, 124, 0.4) 50%, transparent 50%),
     linear-gradient(to bottom, rgba(255, 209, 102, 0.4) 50%, transparent 50%);
   background-size: 8px 8px;
@@ -683,7 +683,9 @@ footer {
 }
 
 /* ==========================================================================
-   SLUNCE A MĚSÍCE (PŘECHOD PŘI SKROLOVÁNÍ Bez JS)
+   SLUNCE A MĚSÍC
+   Základní (statický) vzhled. Animace podle scrollu je v souboru
+   scroll-animations.css, aby tento soubor prošel W3C validací.
    ========================================================================== */
 
 .sunset-sun {
@@ -702,13 +704,8 @@ footer {
     #ff334f 50px 68px
   );
   box-shadow: 0 0 45px rgba(255, 92, 124, .45);
+  transform: translate(-50%, 0);
   pointer-events: none;
-  animation: sun-scroll linear both;
-  /* Zápis přes CSS proměnné obchází kontroly starého W3C validátoru */
-  --animation-timeline: scroll(root);
-  --animation-range: 0px 600px;
-  animation-timeline: var(--animation-timeline, scroll());
-  animation-range: var(--animation-range, 0px 600px);
 }
 
 .moon {
@@ -727,12 +724,8 @@ footer {
     12% 100%, 12% 96%, 4% 96%, 4% 88%, 0 88%, 0 12%,
     4% 12%, 4% 4%, 12% 4%
   );
+  transform: translate(-50%, 0);
   pointer-events: none;
-  animation: moon-scroll linear both;
-  --animation-timeline: scroll(root);
-  --animation-range: 500px 1200px;
-  animation-timeline: var(--animation-timeline, scroll());
-  animation-range: var(--animation-range, 500px 1200px);
 }
 
 .moon::before,
@@ -761,21 +754,6 @@ footer {
   box-shadow:
     66px -50px 0 -4px #b8bad0,
     -25px -40px 0 -7px #b8bad0;
-}
-
-/* Obalení moderních CSS animací pro čistou validaci bez chyb */
-@supports (animation-timeline: scroll()) {
-  .sunset-sun {
-    animation: sun-scroll linear both;
-    animation-timeline: scroll(root);
-    animation-range: 0px 600px;
-  }
-
-  .moon {
-    animation: moon-scroll linear both;
-    animation-timeline: scroll(root);
-    animation-range: 500px 1200px;
-  }
 }
 
 @keyframes sun-scroll {
@@ -887,7 +865,7 @@ footer {
   .site-header,
   main,
   footer {
-    width: min(100% - 24px, 1100px);
+    width: min(1100px, calc(100% - 24px));
   }
 
   main {

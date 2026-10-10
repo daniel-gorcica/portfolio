@@ -1,22 +1,32 @@
-# AI citace
+# AI Citace a prohlášení o použití umělé inteligence
 
-## 🛠️ Použitý nástroj
+Tento projekt využil nástroje generativní umělé inteligence jako pomocný nástroj při vývoji a tvorbě obsahu.
 
-AI asistent v prostředí Visual Studio Code (Copilot SDK).
+---
 
-## 💬 Použité prompty
+## 1. Použité nástroje AI
+* ChatGPT / Gemini / Claude
+* GitHub Copilot
 
-- **01.** „Chtěl bych portfolio page developera ve stylu pixelů jako v arkádových
-  hrách. Chci jednoduchý index.html a style.css.“
-- **02.** „Zkus to udělat ještě více do herního stylu.“
-- **03.** „Přidej ohnivé pixelované prvky.“
-- **04.** „Změň barevnou paletu a přidej odstíny červené.“
-- **05.** „Udělej avatar menší a responzivní.“
-- **06.** „Nahraď ukázkové údaje mými skutečnými údaji.“
+---
 
-## 🤖 Způsob použití AI
+## 2. Rozsah zapojení AI a příklady promptů
 
-AI byla použita pro návrh pixelového vizuálního stylu, vytvoření a úpravy
-HTML a CSS, responzivní rozložení, pixelové efekty a kontrolu chyb.
-Osobní údaje, názvy projektů a odkazy byly doplněny podle skutečných údajů
-autora.
+### 💻 Kód a vývoj (HTML / CSS / JS)
+* **Konzultace a refaktoring:** Konzultace sémantické struktury HTML5 a ladění CSS stylů.
+  * *Příklad promptu:* „Mám v patičce text 'Made with ♥ and Coffee'. Jak upravit HTML, aby patička obsahovala pouze autorská práva a odkazy na validátory?“
+* **Oprava chyb (Debugging):** Pomoc při odhalování a opravě chyb v kódování a responzivitě.
+  * *Příklad promptu:* „Zkontroluj tento kód v CSS a porad mi, proč se mi tlačítko v mobilním zobrazení překrývá s textem.“
+* **Optimalizace:** Návrhy na přístupnost (ARIA atributy) a čistotu kódu.
+  * *Příklad promptu:* „Jaké ARIA atributy bych měl přidat k navigaci a ikonám v HTML pro lepší přístupnost?“
+
+### 📝 Textový obsah a dokumentace
+* **Korektura a úprava textů:** Úprava a stylistická korektura formulací v sekcích O mně a popiscích projektů.
+  * *Příklad promptu:* „Přeformuluj tento text o mně, aby působil profesionálně, ale zároveň úderně pro herní styl portfolia.“
+* **Dokumentace:** Generování prohlášení o použití AI.
+  * *Příklad promptu:* „Vytvoř soubor AI-CITACE.md v Markdownu s přehledem použitých promptů pro školní projekt.“
+
+---
+
+## 3. Prohlášení autora
+Veškeré návrhy a kód vygenerovaný umělou inteligencí byly autorem zkontrolovány, pochopeny, přizpůsobeny a ručně zapracovány do finální podoby webu. Vizuální koncept, struktura a finální implementace jsou výsledkem vlastní práce.

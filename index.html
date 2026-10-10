@@ -3,26 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Pixelové portfolio webového vývojáře.">
-  <meta name="theme-color" content="#15090d">
-  <title>PLAYER 1 // Portfolio vývojáře</title>
+  <title>Daniel // Portfolio vývojáře</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="scroll-animations.css">
 </head>
 <body>
-  <div class="moving-clouds" aria-hidden="true">
+
+  <div class="moving-clouds">
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
   </div>
 
-  <div class="sunset-sun" aria-hidden="true"></div>
-  <div class="moon" aria-hidden="true"></div>
-  <div class="sunset-sea" aria-hidden="true"></div>
-  <div class="pixel-stars" aria-hidden="true">
+  <div class="sunset-sun"></div>
+  <div class="moon"></div>
+  <div class="sunset-sea"></div>
+  
+  <div class="pixel-stars">
     <span class="pixel-star star-1"></span>
     <span class="pixel-star star-2"></span>
     <span class="pixel-star star-3"></span>
@@ -39,7 +38,7 @@
 
   <header class="site-header">
     <a class="logo" href="#domu">MENU</a>
-    <nav aria-label="Hlavní navigace">
+    <nav>
       <a href="#domu">ÚVOD</a>
       <a href="#o-mne">O MNĚ</a>
       <a href="#projekty">PROJEKTY</a>
@@ -48,20 +47,20 @@
   </header>
 
   <main id="domu">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow blink">▶ NOVÝ HRÁČ SE PŘIPOJIL</p>
-        <h1 id="hero-title">Ahoj, jsem<br><span class="accent">Daniel</span><br><span class="outline">vývojá<span class="diacritic">r</span>.</span></h1>
+        <h1>Ahoj, jsem<br><span class="accent">Daniel</span><br><span class="outline">vývojá<span class="diacritic">r</span>.</span></h1>
         <p class="intro">Tvořím weby a aplikace, které jsou rychlé, nápadité a snadno se používají. Každý projekt je další level.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#projekty">START GAME <span aria-hidden="true">▶</span></a>
+          <a class="button button-primary" href="#projekty">START GAME ▶</a>
           <a class="button button-secondary" href="#kontakt">NAPIŠ MI</a>
         </div>
       </div>
 
-      <div class="avatar-box" role="img" aria-label="Pixelový avatar vývojáře">
+      <div class="avatar-box">
         <div class="avatar-screen">
-          <svg class="pixel-avatar" viewBox="0 0 64 46" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+          <svg class="pixel-avatar" viewBox="0 0 64 46" shape-rendering="crispEdges">
             <defs>
               <linearGradient id="sun-grad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0" stop-color="#ffc857"/>
@@ -101,6 +100,7 @@
               <rect x="60" y="20" width="1" height="1"/>
               <rect x="57" y="38" width="1" height="1"/>
             </g>
+
             <g class="float">
               <rect x="3" y="10" width="7" height="1" fill="#ffc857"/>
               <rect x="5" y="12" width="9" height="1" fill="#ff334f"/>
@@ -108,6 +108,7 @@
               <rect x="3" y="16" width="8" height="1" fill="#ffc857"/>
               <rect x="7" y="18" width="2" height="1" fill="#fff1dc"/>
             </g>
+
             <g class="float" style="animation-delay:-1.2s">
               <rect x="53" y="26" width="8" height="1" fill="#ff334f"/>
               <rect x="55" y="28" width="5" height="1" fill="#ffc857"/>
@@ -187,81 +188,94 @@
             <rect x="14" y="44" width="36" height="2" fill="#5e2733"/>
             <rect x="14" y="44" width="36" height="1" fill="#853344"/>
           </svg>
-          <span class="corner top-left" aria-hidden="true">+</span>
-          <span class="corner top-right" aria-hidden="true">+</span>
-          <span class="corner bottom-left" aria-hidden="true">+</span>
-          <span class="corner bottom-right" aria-hidden="true">+</span>
+          <span class="corner top-left">+</span>
+          <span class="corner top-right">+</span>
+          <span class="corner bottom-left">+</span>
+          <span class="corner bottom-right">+</span>
         </div>
         <div class="avatar-status"><span class="status-dot"></span> ONLINE / LEVEL 05</div>
       </div>
     </section>
 
-    <section class="stats" aria-label="Statistiky">
+    <section class="stats">
       <div><strong>03</strong><span>LET ZKUŠENOSTÍ</span></div>
       <div><strong>02</strong><span>DOKONČENÉ PROJEKTY</span></div>
       <div><strong>∞</strong><span>CHUTI TVOŘIT</span></div>
     </section>
 
-    <section class="content-section" id="o-mne" aria-labelledby="o-mne-title">
-      <div class="section-heading"><span>01 //</span><h2 id="o-mne-title">O MNĚ</h2></div>
+    <section class="content-section" id="o-mne">
+      <div class="section-heading"><span>01 //</span><h2>O MNĚ</h2></div>
       <div class="about-grid">
         <div class="about-copy">
           <p class="large-copy">Jsem <span class="accent">začínající vývojář</span>, který se učí tvořit weby a pracovat s kódem.</p>
-          <p>Studuji obor zaměřený na informační technologie a baví mě především tvorba přehledných a vizuálně zajímavých webů. Každý nový projekt beru jako další level, ve kterém si zkouším nové nápady a zlepšuji své dovednosti.</p>
-          <p>Momentálně se soustředím na HTML a CSS, postupně objevuji Python a chci se dále rozvíjet v JavaScriptu a tvorbě interaktivních aplikací.</p>
+          <p>Studuji obor zaměřený na informační technologie a baví mě především tvorba přehledných a vizuálně zajímavých webů. Každý nový projekt beru jako další level.</p>
+          <p>Momentálně se soustředím na HTML a CSS, postupně objevuji Python a chci se dále rozvíjet v JavaScriptu.</p>
         </div>
         <div class="skill-panel">
           <p class="panel-label">▸ INVENTÁŘ DOVEDNOSTÍ</p>
           <ul class="skills">
-            <li><span>HTML</span><b role="img" aria-label="znalost HTML">■■■■■</b></li>
-            <li><span>CSS</span><b role="img" aria-label="znalost CSS">■■■■■</b></li>
-            <li><span>MARKDOWN</span><b role="img" aria-label="znalost Markdown">■■■■□</b></li>
-            <li><span>PYTHON</span><b role="img" aria-label="znalost Python">■■■□□</b></li>
+            <li class="skill-item" data-tooltip="Základní stavební bloky. Zvládnuté na maximum!">
+              <span>HTML</span><b>■■■■■</b>
+            </li>
+            <li class="skill-item" data-tooltip="Styling a design. Barvy a rozvržení pevně v rukou.">
+              <span>CSS</span><b>■■■■■</b>
+            </li>
+            <li class="skill-item" data-tooltip="Rychlé zápisky a dokumentace. Inventář je skoro plný!">
+              <span>MARKDOWN</span><b>■■■■□</b>
+            </li>
+            <li class="skill-item" data-tooltip="Trénink v tutoriálech, brzy boss fight s logikou!">
+              <span>PYTHON</span><b>■■■□□</b>
+            </li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section class="content-section" id="projekty" aria-labelledby="projekty-title">
-      <div class="section-heading"><span>02 //</span><h2 id="projekty-title">VYBRANÉ PROJEKTY</h2></div>
+    <section class="content-section" id="projekty">
+      <div class="section-heading"><span>02 //</span><h2>VYBRANÉ PROJEKTY</h2></div>
       <div class="project-grid">
-        <article class="project-card">
-          <div class="project-number">01</div>
-          <div class="project-art art-crimson" aria-hidden="true"><span>✦</span><i>REAL<br>MADRID</i></div>
-          <div class="project-info">
-            <h3>Real Madrid</h3>
-            <p>Fanouškovský web o Realu Madrid s přehledem základních informací, klubové historie a vizuální prezentací tématu.</p>
-            <span class="project-tech">HTML / CSS</span>
-            <a href="https://daniel-gorcica.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Zobrazit projekt Real Madrid">ZOBRAZIT ↗</a>
-          </div>
-        </article>
-        <article class="project-card">
-          <div class="project-number">02</div>
-          <div class="project-art art-amber" aria-hidden="true"><span>◆</span><i>ROCKET<br>LEAGUE</i></div>
-          <div class="project-info">
-            <h3>Rocket League</h3>
-            <p>Tematický web inspirovaný hrou Rocket League, zaměřený na výrazný herní design, barvy a responzivní rozložení.</p>
-            <span class="project-tech">HTML / CSS</span>
-            <a href="https://daniel-gorcica.github.io/projekt1-web/" target="_blank" rel="noopener noreferrer" aria-label="Zobrazit projekt Rocket League">ZOBRAZIT ↗</a>
-          </div>
-        </article>
+        <a href="https://daniel-gorcica.github.io/" target="_blank" class="project-card">
+          <article>
+            <div class="project-number">01</div>
+            <div class="project-art art-crimson"><span>✦</span><i>REAL<br>MADRID</i></div>
+            <div class="project-info">
+              <h3>Real Madrid</h3>
+              <p>Fanouškovský web o Realu Madrid s přehledem základních informací a klubové historie.</p>
+              <span class="project-tech">HTML / CSS</span>
+              <span class="project-link-text">ZOBRAZIT ↗</span>
+            </div>
+          </article>
+        </a>
+        <a href="https://daniel-gorcica.github.io/projekt1-web/" target="_blank" class="project-card">
+          <article>
+            <div class="project-number">02</div>
+            <div class="project-art art-amber"><span>◆</span><i>ROCKET<br>LEAGUE</i></div>
+            <div class="project-info">
+              <h3>Rocket League</h3>
+              <p>Tematický web inspirovaný hrou Rocket League, zaměřený na výrazný design a barvy.</p>
+              <span class="project-tech">HTML / CSS</span>
+              <span class="project-link-text">ZOBRAZIT ↗</span>
+            </div>
+          </article>
+        </a>
       </div>
     </section>
 
-    <section class="contact-section" id="kontakt" aria-labelledby="kontakt-title">
+    <section class="contact-section" id="kontakt">
       <p class="eyebrow">▶ READY PLAYER?</p>
-      <h2 id="kontakt-title">Pojďme vytvořit<br><span class="accent">něco skvělého.</span></h2>
-      <a class="button button-primary" href="mailto:D24634@oa-opava.cz">POSLAT ZPRÁVU <span aria-hidden="true">&#9993;&#xFE0E;</span></a>
+      <h2>Pojďme vytvořit<br><span class="accent">něco skvělého.</span></h2>
+      <a class="button button-primary" href="mailto:D24634@oa-opava.cz">POSLAT ZPRÁVU ✉</a>
     </section>
   </main>
 
   <footer>
-    <span>© 2026 DANIEL // MADE WITH <span aria-hidden="true">&#9829;&#xFE0E;</span> AND COFFEE</span>
+    <span>© 2026 DANIEL // VŠECHNA PRÁVA VYHRAZENA</span>
     <div class="footer-links">
-      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fportfolio%2Findex.html" target="_blank" rel="noopener noreferrer" aria-label="Výsledek HTML validace">HTML5 ✓</a>
-      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fportfolio%2Fstyle.css&amp;profile=css3svg&amp;usermedium=all&amp;warning=1&amp;vextwarning=" target="_blank" rel="noopener noreferrer" aria-label="Výsledek CSS validace">CSS3 ✓</a>
+      <a href="https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaniel-gorcica.github.io%2Fportfolio%2Findex.html" target="_blank">HTML5 ✓</a>
+      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaniel-gorcica.github.io%2Fportfolio%2Fstyle.css" target="_blank">CSS3 ✓</a>
       <a href="AI-CITACE.md">AI CITACE</a>
     </div>
   </footer>
+
 </body>
 </html>
